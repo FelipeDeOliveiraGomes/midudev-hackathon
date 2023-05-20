@@ -5,13 +5,16 @@ import { BrowserRouter } from "react-router-dom";
 import "../presentation/styles/global.scss";
 
 import { Routes } from "@/presentation/router";
+import { MainLayout } from "@/presentation/layouts";
 
 const container = document.getElementById("main");
 const root = createRoot(container!);
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Routes />
+      <MainLayout>
+        <Routes />
+      </MainLayout>
     </BrowserRouter>
   </React.StrictMode>
 );

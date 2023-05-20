@@ -1,9 +1,10 @@
 import { Link, useLocation } from "react-router-dom";
 
-import InfojobsLogo from "@/presentation/assets/logos/infojobs-logo.svg";
+import AppLogo from "../AppLogo/app-logo";
+
+import { linksToRender } from "./header-utils";
 
 import "./header-styles.scss";
-import { linksToRender } from "./header-utils";
 
 const Header: React.FC = () => {
   const location = useLocation();
@@ -16,7 +17,7 @@ const Header: React.FC = () => {
     <header className="app-header">
       <nav className="app-header__navigation-bar">
         <Link to={"/"}>
-          <InfojobsLogo />
+          <AppLogo />
         </Link>
 
         <div className="app-header__links-container">
