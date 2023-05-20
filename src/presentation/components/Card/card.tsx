@@ -1,0 +1,15 @@
+import "./card.scss";
+
+type Props = {
+  children: React.ReactNode;
+};
+
+const Card: React.FC<Props> = ({ children }) => {
+  return (
+    <section className="card">
+      <div className="card__inner-container">{children}</div>
+    </section>
+  );
+};
+
+export default Card;

@@ -1,0 +1,16 @@
+.home-page {
+    width: 100%;
+    max-width: 1280px;
+    height: 100%;
+    margin: 0 auto;
+    padding: var(--spacing-l);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-l);
+
+    &__title {
+        font-size: var(--font-size-xl);
+        padding: var(--spacing-l);
+    }
+}
