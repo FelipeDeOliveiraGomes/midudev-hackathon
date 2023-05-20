@@ -1,0 +1,24 @@
+{
+  "translation": {
+    "logout": "Logout",
+    "user": "user:",
+    "add new post": "Add New Post",
+    "title": "Title",
+    "message": "Message",
+    "add post": "Add Post",
+    "edit post": "Edit Post",
+    "loading": "Loading",
+    "cancel": "Cancel",
+    "save changes": "Save Changes",
+    "are you sure you want to delete": "Are you sure you want to delete",
+    "no, cancel": "No, cancel",
+    "yes, delete": "Yes, delete",
+    "login": "Login",
+    "password": "Password",
+    "helpPasswordmessage": "Your password must be between 6 - 12 characters, with at least one uppercase letter, one lowercase and one number.",
+    "cannot get posts": "Cannot get posts. Try it again later.",
+    "your password": "Your password",
+    "Invalid Email": "Invalid Email.",
+    "Invalid Password": "Invalid Password."
+  }
+}
