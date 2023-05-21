@@ -5,11 +5,7 @@ type Props = {
 };
 
 const Card: React.FC<Props> = ({ children }) => {
-  return (
-    <section className="card">
-      <div className="card__inner-container">{children}</div>
-    </section>
-  );
+  return <section className="card">{children}</section>;
 };
 
 export default Card;
