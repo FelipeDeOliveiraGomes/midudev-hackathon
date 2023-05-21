@@ -3,10 +3,10 @@
 .card-with-illustration {
     width: 80vw;
     height: max-content;
-    max-width: 800px;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    padding: var(--spacing-l) 10%;
+    padding: var(--spacing-xl);
 
     &--soft-blue {
         background-color: var(--primary-l2);
@@ -20,21 +20,17 @@
         background-color: var(--green-l2);
     }
 
-    &--to-left {
-        flex-direction: row-reverse;
-    }
-
     &__illustration-container {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 45%;
-        height: 100%;
+        width: 100%;
+        height: max-content;
     }
 
     &__content-container {
-        width: 50%;
-        gap: var(--spacing-m);
+        width: 100%;
+        gap: var(--spacing-l);
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -61,5 +57,60 @@
         color: white;
         cursor: pointer;
         font-size: var(--font-size-s);
+    }
+}
+
+@media (min-width: breakpoints.$screen-s) {
+    .card-with-illustration {
+        width: 80vw;
+        height: max-content;
+        max-width: 800px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: var(--spacing-l) 10%;
+    
+        &--to-left {
+            flex-direction: row-reverse;
+        }
+    
+        &__illustration-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45%;
+            height: 100%;
+        }
+    
+        &__content-container {
+            width: 50%;
+            gap: var(--spacing-m);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        &__title {
+            font-size: var(--font-size-s);
+            text-align: center;
+        }
+    
+        &__content {
+            font-size: var(--font-size-s);
+            color: var(--primary-d4);
+        }
+    
+        &__button {
+            background-color: var(--accent);
+            width: max-content;
+            height: max-content;
+            padding: var(--spacing-m);
+            border-radius: .4rem;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: var(--font-size-s);
+        }
     }
 }
