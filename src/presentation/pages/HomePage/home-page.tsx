@@ -15,7 +15,11 @@ const HomePage: React.FC = () => {
       </h2>
 
       {homePageCardsData.map((data) => (
-        <CardWithIllustration {...data} action={() => navigate(data.path)} />
+        <CardWithIllustration
+          {...data}
+          action={() => navigate(data.path)}
+          key={data.path}
+        />
       ))}
     </section>
   );

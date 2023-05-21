@@ -1,14 +1,16 @@
+import { routesRecord } from "@/presentation/router/routes-record";
+
 export const linksToRender = [
   {
-    path: "/analytics",
+    path: routesRecord.ANALYTICS,
     label: "Analiticas",
   },
   {
-    path: "/job-assistant",
+    path: routesRecord.JOB_ASSISTANT,
     label: "Job Assistant",
   },
   {
-    path: "/curriculum-analiser",
+    path: routesRecord.CURRICULUM_ANALISER,
     label: "Analisador de Curriculos",
   },
 ];
