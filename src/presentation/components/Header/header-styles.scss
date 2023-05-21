@@ -1,3 +1,5 @@
+@use "../../styles/breakpoints";
+
 .app-header {
     width: 100%;
     height: 8rem;
@@ -10,23 +12,63 @@
     &__navigation-bar {
         display: flex;
         align-items: center;
+        justify-content: center;
         width: 100%;
         height: 100%;
-        gap: var(--spacing-xxxl);
         padding: var(--spacing-l);
         max-width: 1200px;
     }
 
-    &__links-container {
+    &__logo-link {
+        margin: 0 auto;
+    }
+
+    &__burguer-menu-icon {
+        cursor: pointer;
+    }
+
+    &__mobile-links-container {
+        visibility: hidden;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: transparent;
+        transition: all cubic-bezier(0.075, 0.82, 0.165, 1) .7s;
+    }
+
+    &__mobile-links-container--open {
+        visibility: visible;
+        background-color: #00000099;
+    }
+
+    &__mobile-links-inner-container {
         display: flex;
-        padding-bottom: var(--spacing-xs);
+        flex-direction: column;
+        background-color: white;
+        margin-left: -100%;
+        width: 65%;
+        height: 100%;
+        font-size: var(--font-size-xxl);
+        font-weight: bold;
         gap: var(--spacing-l);
-        font-size: var(--font-size-m);
-        font-weight: 300;
+        padding-top: var(--spacing-giant);
+        padding-left: var(--spacing-m);
+        transition: margin ease-in-out .3s;
+        box-shadow: 6px 0 6px 0 rgba(0,0,0,0.4);
+    }
+
+    &__mobile-links-inner-container--open {
+        margin-left: 0;
+    }
+
+    &__links-container {
+        display: none;
     }
 
     &__link {
-        color: var(--gray-d2);
+        color: var(--gray-d4);
 
         &--active {
             color: var(--primary);
@@ -34,6 +76,61 @@
 
         &:hover {
             color: var(--primary);
+        }
+    }
+}
+
+@media (min-width: breakpoints.$screen-s) {
+    .app-header {
+        width: 100%;
+        height: 8rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        box-shadow: var(--box-shadow-mult);
+    
+        &__navigation-bar {
+            display: flex;
+            align-items: center;
+            justify-content: stretch;
+            width: 100%;
+            height: 100%;
+            gap: var(--spacing-xxxl);
+            padding: var(--spacing-l);
+            max-width: 1200px;
+        }
+
+        &__logo-link {
+            margin: 0;
+        }
+
+        &__burguer-menu-icon {
+            display: none;
+        }
+
+        &__mobile-links-container {
+            display: none;
+        }
+    
+        &__links-container {
+            display: flex;
+            padding-bottom: var(--spacing-xs);
+            gap: var(--spacing-l);
+            font-size: var(--font-size-m);
+            font-weight: 300;
+        }
+    
+        &__link {
+            color: var(--gray-d2);
+    
+            &--active {
+                color: var(--primary);
+            }
+    
+            &:hover {
+                color: var(--primary);
+            }
         }
     }
 }
