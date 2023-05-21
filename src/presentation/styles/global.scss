@@ -14,9 +14,10 @@ body {
   background-color: var(--gray-l4);
 }
 
-img {
+img, svg {
   max-width: 100%;
   max-height: 100%;
+  object-fit: contain;
 }
 
 a {
