@@ -6,4 +6,33 @@
     display: flex;
     flex-direction: column;
     gap: var(--spacing-m);
+
+    &__concurrency-chart-filters {
+        width: 100%;
+        padding: var(--spacing-l);
+        height: max-content;
+        background-color: var(--primary);
+        border-radius: .3rem;
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-l);
+    }
+
+    &__title {
+        color: white;
+        font-size: var(--font-size-s);
+    }
+
+    &__selects-container {
+        display: flex;
+        gap: var(--spacing-l);
+    }
+
+    &__select {
+        border-radius: .3rem;
+        border: solid 1px var(--gray-l1);
+        padding: var(--spacing-s);
+        outline: none;
+        cursor: pointer;
+    }
 }

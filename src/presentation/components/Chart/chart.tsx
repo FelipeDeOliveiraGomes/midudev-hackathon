@@ -1,7 +1,8 @@
-import Highcharts from "highcharts";
+import * as Highcharts from "highcharts";
 import { HighchartsReact } from "highcharts-react-official";
 
 import "./chart.scss";
+import { ChartTypes } from "@/presentation/types";
 
 type ChartParams = {
     options: Highcharts.Options;
