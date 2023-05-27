@@ -3,6 +3,7 @@ import { CardWithIllustrationParams } from './card-with-illustration-types';
 import Card from '../Card/card';
 
 import './card-with-illustration.scss';
+import Button from '../Button/button';
 
 const CardWithIllustration: React.FC<CardWithIllustrationParams> = ({
     backgroundColor,
@@ -31,12 +32,7 @@ const CardWithIllustration: React.FC<CardWithIllustrationParams> = ({
                     </p>
 
                     {callToAction && (
-                        <button
-                            className="card-with-illustration__button"
-                            onClick={action}
-                        >
-                            {callToAction}
-                        </button>
+                        <Button onClick={action}>{callToAction}</Button>
                     )}
                 </div>
             </div>
