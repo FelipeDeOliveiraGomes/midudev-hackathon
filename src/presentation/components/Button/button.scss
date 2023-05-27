@@ -1,0 +1,11 @@
+.app-button {
+    background-color: var(--accent);
+    width: max-content;
+    height: max-content;
+    padding: var(--spacing-m);
+    border-radius: .4rem;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: var(--font-size-s);
+}
