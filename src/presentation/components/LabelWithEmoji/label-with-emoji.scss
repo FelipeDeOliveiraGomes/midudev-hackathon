@@ -1,0 +1,19 @@
+.label-with-emoji {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-m);
+    padding: var(--spacing-m);
+    border-radius: .3rem;
+    font-size: var(--font-size-m);
+    color: var(--gray);
+    width: 100%;
+    
+    &__emoji-container {
+        width: 2rem;
+    }
+
+    &__emoji {
+        filter: drop-shadow(.4rem .2rem .4rem var(--gray));
+    }
+}

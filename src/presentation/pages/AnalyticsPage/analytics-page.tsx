@@ -1,4 +1,9 @@
-import { AppSelect, Button, Chart } from '@/presentation/components';
+import {
+    AppSelect,
+    Button,
+    Chart,
+    LabelWithEmoji,
+} from '@/presentation/components';
 import { useHighchartsOptions } from '@/presentation/genericHooks';
 import { spainProvinces } from '@/presentation/utils/general-data-utils';
 
@@ -72,25 +77,35 @@ const AnalyticsPage: React.FC = () => {
             <section className="analytics-page__charts-container">
                 <div className="analytics-page__chart">
                     <Chart options={concurrencyChartOptions} />
-                    <div>comment</div>
+                    <LabelWithEmoji emoji="sad">
+                        ¡Este sector actualmente esta muy concurrido!
+                    </LabelWithEmoji>
                 </div>
 
                 <div className="analytics-page__chart">
                     <Chart options={skillsChartOptions} />
-                    <div>comment</div>
+                    <LabelWithEmoji emoji="cool">
+                        ¿Quieres destacar en el mercado? Aqui esta el secreto.
+                    </LabelWithEmoji>
                 </div>
 
                 <div className="analytics-page__chart">
                     <Chart options={experienceChart} />
-                    <div>comment</div>
+                    <LabelWithEmoji emoji="eyes">
+                        !El perfil mas buscado tiene $x años o mas de
+                        experiencia!
+                    </LabelWithEmoji>
                 </div>
 
                 <div className="analytics-page__chart">
                     <Chart options={salaryDistribuitionChart} />
-                    <div>comment</div>
+                    <LabelWithEmoji emoji="moneyFace">
+                        ¿Estas dentro de este rango?
+                    </LabelWithEmoji>
                 </div>
             </section>
         </div>
     );
 };
+
 export default AnalyticsPage;

@@ -7,3 +7,4 @@ export { default as CardWithIllustration } from './CardWithIllustration/card-wit
 export { default as Chart } from './Chart/chart';
 export { default as AppSelect } from './AppSelect/app-select';
 export { default as Button } from './Button/button';
+export { default as LabelWithEmoji } from './LabelWithEmoji/label-with-emoji';
