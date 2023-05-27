@@ -8,6 +8,7 @@
     align-items: center;
     background-color: white;
     box-shadow: var(--box-shadow-mult);
+    z-index: 100;
 
     &__navigation-bar {
         display: flex;

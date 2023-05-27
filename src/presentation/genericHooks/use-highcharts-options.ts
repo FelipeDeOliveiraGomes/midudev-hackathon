@@ -24,8 +24,14 @@ export const useHighchartsOptions = ({
                     enabled: true,
                 },
             },
+            line: {
+                lineWidth: 5,
+            },
         },
-        series: data as any,
+        series: data,
+        credits: {
+            enabled: false,
+        },
         colors: [
             "var(--primary)",
             "var(--accent)",
@@ -33,5 +39,8 @@ export const useHighchartsOptions = ({
             "var(--green)",
             "var(--red)",
         ],
+        chart: {
+            height: "52%",
+        },
     };
 };
