@@ -1,6 +1,6 @@
 .app-button {
     background-color: var(--accent);
-    width: max-content;
+    min-width: max-content;
     height: max-content;
     padding: var(--spacing-m);
     border-radius: .4rem;
