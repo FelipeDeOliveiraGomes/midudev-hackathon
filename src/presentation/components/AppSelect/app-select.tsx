@@ -41,8 +41,6 @@ const AppSelect: React.FC<AppSelectParams> = ({
         dropdownRef.current!.style.display = 'none';
     };
 
-    value = options[0].label;
-
     const optionsFiltered = filterOptions(options);
 
     return (
