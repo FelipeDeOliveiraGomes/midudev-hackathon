@@ -2,6 +2,7 @@ import { Chart } from "@/presentation/components";
 import { useHighchartsOptions } from "@/presentation/genericHooks";
 
 import "./analytics-page.scss";
+
 import {
     spainProvinces,
     spainRegions,
@@ -47,7 +48,7 @@ const AnalyticsPage: React.FC = () => {
 
     return (
         <div className="analytics-page">
-            <section className="analytics-page__concurrency-chart-filters">
+            <section className="analytics-page__chart-filters">
                 <header className="analytics-page__title">
                     <h2>Analytics</h2>
                 </header>
@@ -71,10 +72,27 @@ const AnalyticsPage: React.FC = () => {
                 </div>
             </section>
 
-            <Chart options={concurrencyChartOptions} />
-            <Chart options={skillsChartOptions} />
-            <Chart options={experienceChart} />
-            <Chart options={salaryDistribuitionChart} />
+            <section className="analytics-page__charts-container">
+                <div className="analytics-page__chart">
+                    <Chart options={concurrencyChartOptions} />
+                    <div>comment</div>
+                </div>
+
+                <div className="analytics-page__chart">
+                    <Chart options={skillsChartOptions} />
+                    <div>comment</div>
+                </div>
+
+                <div className="analytics-page__chart">
+                    <Chart options={experienceChart} />
+                    <div>comment</div>
+                </div>
+
+                <div className="analytics-page__chart">
+                    <Chart options={salaryDistribuitionChart} />
+                    <div>comment</div>
+                </div>
+            </section>
         </div>
     );
 };
