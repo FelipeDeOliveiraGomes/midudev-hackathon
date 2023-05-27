@@ -1,12 +1,8 @@
-import { Chart } from '@/presentation/components';
+import { AppSelect, Button, Chart } from '@/presentation/components';
 import { useHighchartsOptions } from '@/presentation/genericHooks';
+import { spainProvinces } from '@/presentation/utils/general-data-utils';
 
 import './analytics-page.scss';
-
-import {
-    spainProvinces,
-    spainRegions,
-} from '@/presentation/utils/general-data-utils';
 
 const AnalyticsPage: React.FC = () => {
     const concurrencyChartOptions = useHighchartsOptions({
@@ -53,22 +49,23 @@ const AnalyticsPage: React.FC = () => {
                     <h2>Analytics</h2>
                 </header>
 
-                <div className="analytics-page__selects-container">
-                    <select className="analytics-page__select">
-                        {spainRegions.map((region) => (
-                            <option key={region}>{region}</option>
-                        ))}
-                    </select>
+                <div className="analytics-page__actions-container">
+                    <AppSelect
+                        label="Quiero datos del sector..."
+                        options={[
+                            { label: 'informatica', value: 'informatica' },
+                        ]}
+                    />
 
-                    <select className="analytics-page__select">
-                        {spainProvinces[spainRegions[0]].map((province) => (
-                            <option key={province}>{province}</option>
-                        ))}
-                    </select>
+                    <AppSelect
+                        label="en..."
+                        options={spainProvinces.map((province) => ({
+                            label: province,
+                            value: province,
+                        }))}
+                    />
 
-                    <select className="analytics-page__select">
-                        <option>informatica</option>
-                    </select>
+                    <Button>Aplicar filtros</Button>
                 </div>
             </section>
 
