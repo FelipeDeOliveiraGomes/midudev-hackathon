@@ -1,0 +1,103 @@
+.app-select {
+    width: 100%;
+    max-width: 35rem;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-s);
+    position: relative;
+    font-size: var(--font-size-s);
+
+    &__selected-item-display-container {
+        width: 100%;
+        border-radius: .3rem;
+        border: solid .1rem var(--gray-l2);
+
+        &::after {
+            font-family: 'Material Symbols Outlined';
+            font-display: block;
+            content: 'keyboard_arrow_down';
+            font-size: var(--font-size-xl);
+            position: absolute;
+            top: 50%;
+            right: 1rem;
+            display: flex;
+            z-index: 10;
+            color: var(--primary-d2);
+            cursor: pointer;
+        }
+    }
+
+    &__selected-item-display {
+        width: 100%;
+        padding: var(--spacing-m);
+        outline: none;
+        border: none;
+        color: var(--gray-d4);
+        caret-color: transparent;
+        cursor: pointer;
+    }
+
+    &__label {
+        font-size: var(--font-size-s);
+        color: var(--gray-l4);
+    }
+
+    &__dropdown {
+        display: none;
+        flex-direction: column;
+        height: max-content;
+        position: absolute;
+        border-radius: .2rem;
+        max-height: 20rem;
+        border: solid 1px var(--gray-l2);
+        background-color: var(--gray-l4);
+        z-index: 10;
+        top: 5.3rem;
+        width: 100%;
+
+        &::after {
+            font-family: 'Material Symbols Outlined';
+            font-display: block;
+            content: 'search';
+            font-size: var(--font-size-xl);
+            position: absolute;
+            top: .5rem;
+            right: .6rem;
+            display: flex;
+            z-index: 10;
+            color: var(--gray-l2);
+        }
+    }
+
+    &__searchbox {
+        position: sticky;
+        top: 0;
+        padding: var(--spacing-s);
+        outline: none;
+        border: solid .1rem var(--gray-l3);
+        margin: var(--spacing-s);
+    }
+
+    &__options-list {
+        height: 100%;
+        overflow: auto;
+        padding: var(--spacing-s) 0;
+    }
+
+    &__li {
+        padding: var(--spacing-m);
+        cursor: pointer;
+
+        &:hover {
+            background-color: var(--gray-l2);
+        }
+
+        &--selected {
+            background-color: var(--gray-l1);
+        }
+    }
+
+    &__highlight {
+        background-color: var(--gray-l1);
+    }
+}
