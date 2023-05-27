@@ -1,4 +1,4 @@
-export type ChartTypes = "line" | "column" | "bar" | "pie";
+export type ChartTypes = 'line' | 'column' | 'bar' | 'pie';
 
 export type HighChartsData = {
     type: ChartTypes;

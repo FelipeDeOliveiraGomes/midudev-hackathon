@@ -1,5 +1,5 @@
-import { Options } from "highcharts";
-import { ChartTypes, HighChartsData } from "../types";
+import { Options } from 'highcharts';
+import { ChartTypes, HighChartsData } from '../types';
 
 type useHighChartsOptionsParams = {
     title: string;
@@ -18,7 +18,7 @@ export const useHighchartsOptions = ({
         },
         plotOptions: {
             pie: {
-                innerSize: isDoughnutChart ? "50%" : "",
+                innerSize: isDoughnutChart ? '50%' : '',
                 depth: 45,
                 dataLabels: {
                     enabled: true,
@@ -33,14 +33,14 @@ export const useHighchartsOptions = ({
             enabled: false,
         },
         colors: [
-            "var(--primary)",
-            "var(--accent)",
-            "var(--yellow)",
-            "var(--green)",
-            "var(--red)",
+            'var(--primary)',
+            'var(--accent)',
+            'var(--yellow)',
+            'var(--green)',
+            'var(--red)',
         ],
         chart: {
-            height: "52%",
+            height: '52%',
         },
     };
 };

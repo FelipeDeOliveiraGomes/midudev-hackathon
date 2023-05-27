@@ -1,21 +1,21 @@
 import { Navigate } from 'react-router-dom';
 
 type Props = {
-  auth: any;
-  children: React.ReactNode;
-  redirectOnFailTo: string;
+    auth: any;
+    children: React.ReactNode;
+    redirectOnFailTo: string;
 };
 
 export const PrivateRoute: React.FC<Props> = ({
-  auth,
-  redirectOnFailTo,
-  children,
+    auth,
+    redirectOnFailTo,
+    children,
 }) => {
-  if (!auth) {
-    return <Navigate to={redirectOnFailTo} />;
-  }
+    if (!auth) {
+        return <Navigate to={redirectOnFailTo} />;
+    }
 
-  return <>{children}</>;
+    return <>{children}</>;
 };
 
 export default PrivateRoute;

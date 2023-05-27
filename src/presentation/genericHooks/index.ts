@@ -1,1 +1,1 @@
-export * from "./use-highcharts-options";
+export * from './use-highcharts-options';

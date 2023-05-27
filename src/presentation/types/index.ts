@@ -1,1 +1,1 @@
-export * from "./generic-types";
+export * from './generic-types';
