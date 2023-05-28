@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 
-import { CardWithIllustration } from '@/presentation/components';
+import { AnimatedSlide, CardWithIllustration } from '@/presentation/components';
+import { homePageCardsData } from './home-page-utils';
 
 import './home-page.scss';
-import { homePageCardsData } from './home-page-utils';
 
 const HomePage: React.FC = () => {
     const navigate = useNavigate();
@@ -15,13 +15,17 @@ const HomePage: React.FC = () => {
             </h2>
 
             {homePageCardsData.map((data) => (
-                <CardWithIllustration
-                    {...data}
-                    action={() => navigate(data.path)}
-                    key={data.path}
-                />
+                <div key={data.path}>
+                    <AnimatedSlide delay={data.delay}>
+                        <CardWithIllustration
+                            {...data}
+                            action={() => navigate(data.path)}
+                        />
+                    </AnimatedSlide>
+                </div>
             ))}
         </section>
     );
 };
+
 export default HomePage;

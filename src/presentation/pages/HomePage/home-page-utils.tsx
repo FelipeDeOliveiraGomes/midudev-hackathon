@@ -8,6 +8,7 @@ import { routesRecord } from '@/presentation/router/routes-record';
 
 type HomePageCardsDataType = {
     path: string;
+    delay: number;
 } & CardWithIllustrationParams;
 
 export const homePageCardsData: HomePageCardsDataType[] = [
@@ -15,6 +16,7 @@ export const homePageCardsData: HomePageCardsDataType[] = [
         backgroundColor: 'soft-blue',
         illustration: <DoubtsIllustration />,
         title: 'Analiticas Avanzadas',
+        delay: 100,
         callToAction: 'Ir para Analiticas',
         path: routesRecord.ANALYTICS,
         children:
@@ -24,6 +26,7 @@ export const homePageCardsData: HomePageCardsDataType[] = [
         backgroundColor: 'soft-yellow',
         illustration: <RobotIllustration />,
         title: 'Job Assistant',
+        delay: 400,
         direction: 'to-left',
         callToAction: 'Ir para Job Assistant',
         path: routesRecord.JOB_ASSISTANT,
@@ -34,6 +37,7 @@ export const homePageCardsData: HomePageCardsDataType[] = [
         backgroundColor: 'soft-green',
         illustration: <CvAnalisisIllustration />,
         title: 'Analisis avanzado de curriculum por I.A.',
+        delay: 700,
         callToAction: 'Ir para Analisis de curriculum',
         path: routesRecord.CURRICULUM_ANALISER,
         children:
