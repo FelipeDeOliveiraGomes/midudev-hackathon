@@ -32,13 +32,13 @@ const AppSelect: React.FC<AppSelectParams> = ({
     const openDropDown = () => {
         if (!dropdownRef.current || !inputRef.current) return;
 
-        dropdownRef.current!.style.display = 'flex';
+        dropdownRef.current!.style.visibility = 'visible';
         inputRef.current.focus();
     };
 
     const closeDropDown = () => {
         if (!dropdownRef.current) return;
-        dropdownRef.current!.style.display = 'none';
+        dropdownRef.current!.style.visibility = 'hidden';
     };
 
     const optionsFiltered = filterOptions(options);
@@ -52,14 +52,18 @@ const AppSelect: React.FC<AppSelectParams> = ({
                     type="text"
                     className="app-select__selected-item-display"
                     value={value}
-                    onFocus={openDropDown}
+                    onClick={openDropDown}
                 />
             </div>
 
             <div ref={dropdownRef} className="app-select__dropdown">
                 <input
                     ref={inputRef}
-                    onBlur={closeDropDown}
+                    onBlur={() =>
+                        setTimeout(() => {
+                            closeDropDown();
+                        }, 100)
+                    }
                     className="app-select__searchbox"
                     value={searchExp}
                     onChange={({ target }) => setSearchExp(target.value)}
@@ -75,7 +79,10 @@ const AppSelect: React.FC<AppSelectParams> = ({
                                         ? 'app-select__li--selected'
                                         : ''
                                 }`}
-                                onClick={() => onChange(options.value)}
+                                onClick={() => {
+                                    onChange(options.value);
+                                }}
+                                key={options.value}
                             >
                                 {options.label}
                             </li>
@@ -83,7 +90,7 @@ const AppSelect: React.FC<AppSelectParams> = ({
                     ) : (
                         <li className="app-select__li">
                             <span>
-                                No encontrado:{' '}
+                                No encontrado:
                                 <span className="app-select__highlight">
                                     "{searchExp}"
                                 </span>

@@ -43,10 +43,11 @@
     }
 
     &__dropdown {
-        display: none;
+        display: flex;
         flex-direction: column;
         height: max-content;
         position: absolute;
+        visibility: hidden;
         border-radius: .2rem;
         max-height: 20rem;
         border: solid 1px var(--gray-l2);
@@ -83,7 +84,7 @@
         overflow: auto;
         padding: var(--spacing-s) 0;
     }
-
+ 
     &__li {
         padding: var(--spacing-m);
         cursor: pointer;
