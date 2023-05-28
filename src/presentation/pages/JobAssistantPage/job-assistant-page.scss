@@ -1,3 +1,5 @@
+@use "../../styles/breakpoints";
+
 .job-assistant-page {
     width: 100%;
     height: 100%;
@@ -25,22 +27,124 @@
     }
 
     &__title {
-        width: 100%;
-        max-width: 1200px;
         font-size: var(--font-size-l);
         padding: var(--spacing-l);
-        color: white;
+        color: var(--primary-d2);
+        margin: 0 auto;
     }
 
     &__form {
         background-color: white;
         width: 100%;
-        max-width: 800px;
+        max-width: 700px;
         height: max-content;
-        min-height: 70rem;
+        min-height: 60rem;
         margin: 0 auto;
         border-radius: .6rem;
-        padding: var(--spacing-l);
-        box-shadow: var(--box-shadow-l)
+        padding: var(--spacing-xxxl);
+        box-shadow: var(--box-shadow-l);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: var(--spacing-xl);
+    }
+
+    &__form-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-width: 48rem;
+    }
+
+    &__label {
+        width: 100%;
+        max-width: 47rem;
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-m);
+        border: none;
+        border-color: var(--gray);
+    }
+
+    &__input {
+        width: 100%;
+        padding: var(--spacing-m);
+        border: solid .1rem;
+        border-color: inherit;
+        border-radius: .4rem;
+        outline: none; 
+        color: inherit;
+    }
+
+    .with-error {
+        border-color: var(--red);
+        color: var(--red);
+    }
+
+    .valid {
+        border-color: var(--green);
+        color: var(--green);
+    }
+
+    &__checkbox-label {
+        display: flex;
+        width: 100%;
+        max-width: 47rem;
+        gap: var(--spacing-m);
+        font-size: var(--font-size-m);
+    }
+
+    &__checkbox-input {
+        padding: var(--spacing-m);
+        border: solid .1rem var(--gray-l1);
+        border-radius: .4rem;
+    }
+
+    &__success-message {
+        background-color: white;
+        width: 100%;
+        max-width: 700px;
+        height: max-content;
+        min-height: 40rem;
+        margin: 0 auto;
+        border-radius: .6rem;
+        padding: var(--spacing-xxxl);
+        box-shadow: var(--box-shadow-l);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: var(--spacing-xl);
+    }
+
+    &__success-message-inner-container {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-l);
+    }
+
+    &__thanks {
+        font-size: var(--font-size-l);
+        text-align: center;
+    }
+
+    &__explanation {
+        text-align: center;
+        font-size: var(--font-size-m);
+    }
+
+    .app-select__label {
+        color: var(--gray-d4)
+    }
+}
+
+@media (min-width: breakpoints.$screen-s) {
+    .job-assistant-page {
+        &__help {
+            padding: .5rem .9rem;
+            font-size: var(--font-size-m);
+        }
     }
 }
