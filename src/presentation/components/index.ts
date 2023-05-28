@@ -10,3 +10,4 @@ export { default as Button } from './Button/button';
 export { default as LabelWithEmoji } from './LabelWithEmoji/label-with-emoji';
 export { default as TypingAnimatedText } from './TypingAnimatedText/typing-animated-text';
 export { default as AnimatedSlide } from './AnimatedSlide/animated-slide';
+export { default as AnimatedCheck } from './AnimatedCheck/animated-check';
