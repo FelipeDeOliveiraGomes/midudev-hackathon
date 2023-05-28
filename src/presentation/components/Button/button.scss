@@ -9,4 +9,9 @@
     cursor: pointer;
     font-size: var(--font-size-s);
     font-weight: bold;
+
+    &:disabled {
+        opacity: .7;
+        cursor: not-allowed;
+    }
 }
