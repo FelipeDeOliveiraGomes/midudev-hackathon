@@ -11,22 +11,15 @@ import {
 import useSessionStorage from '@/presentation/hooks/useSessionStorage';
 import useFormValidation from '@/presentation/hooks/useFormValidation';
 
-import './job-assistant-page.scss';
 import { spainProvinces } from '@/presentation/utils';
+import {
+    initialValues,
+    validationRules,
+    fieldsToRender,
+} from './job-assistant-page-utils';
 
-const initialValues = {
-    name: '',
-    email: '',
-    offerTitle: '',
-    province: '',
-};
-
-const validationRules = {
-    email: (email: string) => {
-        const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
-        return emailRegex.test(email);
-    },
-};
+import './job-assistant-page.scss';
+import { JobAssistantFormFields } from './job-assistant-page-types';
 
 const JobAssistantPage: React.FC = () => {
     const [formIsVisible, setFormIsVisible] = useState(true);
@@ -48,7 +41,7 @@ const JobAssistantPage: React.FC = () => {
         setFormIsVisible(false);
     };
 
-    const defineFieldStatus = (fieldName: string) => {
+    const defineFieldStatus = (fieldName: JobAssistantFormFields) => {
         if (!formValues[fieldName].length) return '';
         if (errors[fieldName]) return 'with-error';
 
@@ -85,50 +78,23 @@ const JobAssistantPage: React.FC = () => {
                                 </h3>
                             </header>
 
-                            <label
-                                className={`job-assistant-page__label ${defineFieldStatus(
-                                    'name'
-                                )}`}
-                            >
-                                Nombre:
-                                <input
-                                    name="name"
-                                    type="text"
-                                    className="job-assistant-page__input"
-                                    value={formValues['name']}
-                                    onChange={handleChange}
-                                />
-                            </label>
-
-                            <label
-                                className={`job-assistant-page__label ${defineFieldStatus(
-                                    'email'
-                                )}`}
-                            >
-                                Email
-                                <input
-                                    name="email"
-                                    type="email"
-                                    value={formValues['email']}
-                                    className={`job-assistant-page__input`}
-                                    onChange={handleChange}
-                                />
-                            </label>
-
-                            <label
-                                className={`job-assistant-page__label ${defineFieldStatus(
-                                    'offerTitle'
-                                )}`}
-                            >
-                                Buscas ofertas de...
-                                <input
-                                    name="offerTitle"
-                                    value={formValues['offerTitle']}
-                                    type="text"
-                                    className="job-assistant-page__input"
-                                    onChange={handleChange}
-                                />
-                            </label>
+                            {fieldsToRender.map(({ label, name, type }) => (
+                                <label
+                                    className={`job-assistant-page__label ${defineFieldStatus(
+                                        name
+                                    )}`}
+                                    key={name}
+                                >
+                                    {label}
+                                    <input
+                                        name={name}
+                                        value={formValues[name]}
+                                        type={type}
+                                        className="job-assistant-page__input"
+                                        onChange={handleChange}
+                                    />
+                                </label>
+                            ))}
 
                             <AppSelect
                                 label="en..."
@@ -165,7 +131,7 @@ const JobAssistantPage: React.FC = () => {
                     <div className="job-assistant-page__success-message">
                         <AnimatedCheck />
 
-                        <AnimatedSlide delay={1000}>
+                        <AnimatedSlide delay={200}>
                             <div className="job-assistant-page__success-message-inner-container">
                                 <span className="job-assistant-page__thanks">
                                     ¡Gracias por suscribirte!

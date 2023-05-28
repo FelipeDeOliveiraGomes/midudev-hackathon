@@ -1,25 +1,21 @@
 import { useState, useEffect } from 'react';
 
-type FormValues = {
-    [key: string]: string;
-};
-
 type Errors = {
     [key: string]: string;
 };
 
-type FormValidationProps = {
-    initialValues: FormValues;
+type FormValidationProps<U> = {
+    initialValues: U;
     validationRules: { [key: string]: (value: string) => boolean };
     setSubmitButtonState: (state: boolean) => void;
 };
 
-const useFormValidation = ({
+const useFormValidation = <T>({
     initialValues,
     validationRules,
     setSubmitButtonState,
-}: FormValidationProps) => {
-    const [formValues, setFormValues] = useState<FormValues>(initialValues);
+}: FormValidationProps<T>) => {
+    const [formValues, setFormValues] = useState<T>(initialValues);
     const [errors, setErrors] = useState<Errors>({});
 
     useEffect(() => {
@@ -31,7 +27,7 @@ const useFormValidation = ({
                 const validationRule = validationRules[field];
 
                 if (validationRule) {
-                    const isValid = validationRule(value);
+                    const isValid = validationRule(value as string);
                     if (!isValid) {
                         newErrors[field] = 'Campo inválido';
                     }
