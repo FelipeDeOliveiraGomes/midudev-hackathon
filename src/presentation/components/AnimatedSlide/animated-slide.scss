@@ -1,0 +1,14 @@
+.animated-slide {
+    opacity: 0;
+    transform: translateY(20px);
+    height: 0;
+    width: 100%;
+    transition: opacity 0.5s ease, transform 0.5s ease, height 1.5s ease;
+    margin: 0 auto;
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+    height: max-content;
+}
