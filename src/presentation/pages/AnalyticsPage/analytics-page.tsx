@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import {
     AppSelect,
@@ -96,6 +96,10 @@ const AnalyticsPage: React.FC = () => {
         setSalaryChartData(salaryChartMock);
         setSkillsChartData(skillsChartMock);
     };
+
+    useEffect(() => {
+        handleApplyClick();
+    }, []);
 
     return (
         <div className="analytics-page">
