@@ -1,20 +1,33 @@
+import { useState } from 'react';
 import { Options } from 'highcharts';
-import { ChartTypes, HighChartsData } from '../types';
+
+import { HighChartsData, SetStateType } from '../types';
 
 type useHighChartsOptionsParams = {
     title: string;
     isDoughnutChart?: boolean;
     data: HighChartsData[];
+    intervalLabels?: {
+        xAxis?: string[];
+        YAxis?: string[];
+    };
 };
 
 export const useHighchartsOptions = ({
     data,
     title,
     isDoughnutChart,
-}: useHighChartsOptionsParams): Options => {
-    return {
+    intervalLabels,
+}: useHighChartsOptionsParams): [Options, SetStateType<Options>] => {
+    const [highChartsOptions, setHighChartsOptions] = useState<Options>({
         title: {
             text: title,
+        },
+        xAxis: {
+            categories: intervalLabels?.xAxis,
+        },
+        yAxis: {
+            categories: intervalLabels?.YAxis,
         },
         plotOptions: {
             pie: {
@@ -22,13 +35,25 @@ export const useHighchartsOptions = ({
                 depth: 45,
                 dataLabels: {
                     enabled: true,
+                    style: {
+                        fontSize: 'var(--font-size-xs)',
+                    },
                 },
             },
             line: {
                 lineWidth: 5,
             },
         },
-        series: data,
+        series: data.map(({ data, type, name }) => ({
+            name,
+            type,
+            data,
+        })),
+        legend: {
+            itemStyle: {
+                fontSize: 'var(--font-size-s)',
+            },
+        },
         credits: {
             enabled: false,
         },
@@ -40,7 +65,9 @@ export const useHighchartsOptions = ({
             'var(--red)',
         ],
         chart: {
-            height: '52%',
+            height: '50%',
         },
-    };
+    });
+
+    return [highChartsOptions, setHighChartsOptions];
 };

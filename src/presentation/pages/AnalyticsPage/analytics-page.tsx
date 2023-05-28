@@ -10,39 +10,52 @@ import { spainProvinces } from '@/presentation/utils/general-data-utils';
 import './analytics-page.scss';
 
 const AnalyticsPage: React.FC = () => {
-    const concurrencyChartOptions = useHighchartsOptions({
-        title: 'Cantidad de ofertas de empleo x Candidatos - 3 meses',
-        data: [
-            { type: 'line', data: [11, 10, 10] },
-            { type: 'line', data: [10, 12, 11] },
-        ],
-    });
+    const [concurrencyChartOptions, setConcurrencyChartOptions] =
+        useHighchartsOptions({
+            title: 'Cantidad de ofertas de empleo x Candidatos - 3 meses',
+            data: [
+                { name: 'Ofertas', type: 'line', data: [11, 10, 10] },
+                { name: 'candidatos', type: 'line', data: [10, 12, 11] },
+            ],
+        });
 
-    const skillsChartOptions = useHighchartsOptions({
+    const [skillsChartOptions] = useHighchartsOptions({
         title: 'Top 5 Habilidades mas demandadas',
         data: [{ type: 'pie', data: [80, 67, 53, 42, 23] }],
     });
 
-    const experienceChart = useHighchartsOptions({
+    const [experienceChart] = useHighchartsOptions({
         title: 'Distribucion de las ofertas por nivel de experiencia',
         isDoughnutChart: true,
-        data: [{ type: 'pie', data: [15, 30, 55] }],
+        data: [
+            {
+                type: 'pie',
+                data: [
+                    ['junior', 15],
+                    ['mid-level', 30],
+                    ['Senior', 55],
+                ],
+            },
+        ],
     });
 
-    const salaryDistribuitionChart = useHighchartsOptions({
+    const [salaryDistribuitionChart] = useHighchartsOptions({
         title: 'Sueldos minimo, medio y maximos registrados',
         data: [
             {
                 type: 'column',
                 data: [18000],
+                name: 'Mínimo registrado',
             },
             {
                 type: 'column',
                 data: [26000],
+                name: 'Média general',
             },
             {
                 type: 'column',
                 data: [80000],
+                name: 'Maximo registrado',
             },
         ],
     });
