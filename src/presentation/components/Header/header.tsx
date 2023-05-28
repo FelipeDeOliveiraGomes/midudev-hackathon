@@ -19,6 +19,7 @@ const Header: React.FC = () => {
 
     const links = linksToRender.map(({ path, label }) => (
         <Link
+            onClick={() => setMobileMenuIsOpen(false)}
             className={`app-header__link${defineLinkIsActive(path)}`}
             to={path}
             key={path}
@@ -57,6 +58,7 @@ const Header: React.FC = () => {
                         }`}
                     >
                         <Link
+                            onClick={() => setMobileMenuIsOpen(false)}
                             className={`app-header__link${defineLinkIsActive(
                                 '/'
                             )}`}

@@ -6,16 +6,16 @@ export const linksToRender = [
         label: 'Analíticas',
     },
     {
+        path: routesRecord.JOB_ASSISTANT,
+        label: 'Job Assistant',
+    },
+    {
         path: routesRecord.CURRICULUM_ANALISER,
         label: 'Analisis De Curriculum',
     },
     {
         path: routesRecord.SALARY_COMPARISSON,
         label: 'Comparador De Sueldos',
-    },
-    {
-        path: routesRecord.JOB_ASSISTANT,
-        label: 'Job Assistant',
     },
     {
         path: routesRecord.ABOUT,
