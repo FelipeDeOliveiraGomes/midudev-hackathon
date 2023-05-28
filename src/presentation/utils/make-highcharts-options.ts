@@ -1,9 +1,7 @@
-import { useState } from 'react';
 import { Options } from 'highcharts';
+import { HighChartsData } from '../types';
 
-import { HighChartsData, SetStateType } from '../types';
-
-type useHighChartsOptionsParams = {
+type MakeHighChartsOptionsParams = {
     title: string;
     isDoughnutChart?: boolean;
     data: HighChartsData[];
@@ -13,13 +11,13 @@ type useHighChartsOptionsParams = {
     };
 };
 
-export const useHighchartsOptions = ({
+export const makeHighchartsOptions = ({
     data,
     title,
     isDoughnutChart,
     intervalLabels,
-}: useHighChartsOptionsParams): [Options, SetStateType<Options>] => {
-    const [highChartsOptions, setHighChartsOptions] = useState<Options>({
+}: MakeHighChartsOptionsParams): Options => {
+    return {
         title: {
             text: title,
         },
@@ -67,7 +65,5 @@ export const useHighchartsOptions = ({
         chart: {
             height: '50%',
         },
-    });
-
-    return [highChartsOptions, setHighChartsOptions];
+    };
 };
