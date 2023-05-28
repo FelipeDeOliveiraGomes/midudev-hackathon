@@ -8,3 +8,5 @@ export { default as Chart } from './Chart/chart';
 export { default as AppSelect } from './AppSelect/app-select';
 export { default as Button } from './Button/button';
 export { default as LabelWithEmoji } from './LabelWithEmoji/label-with-emoji';
+export { default as TypingAnimatedText } from './TypingAnimatedText/typing-animated-text';
+export { default as AnimatedSlide } from './AnimatedSlide/animated-slide';
