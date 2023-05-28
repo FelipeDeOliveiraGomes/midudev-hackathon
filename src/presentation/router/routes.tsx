@@ -2,6 +2,7 @@ import { RouteObject, useLocation, useRoutes } from 'react-router-dom';
 
 import {
     AnalyticsPage,
+    CurriculumAnaliserPage,
     HomePage,
     JobAssistantPage,
     SalaryComparissonPage,
@@ -9,7 +10,8 @@ import {
 import { routesRecord } from './routes-record';
 import { useEffect } from 'react';
 
-const { ANALYTICS, SALARY_COMPARISSON, JOB_ASSISTANT } = routesRecord;
+const { ANALYTICS, SALARY_COMPARISSON, JOB_ASSISTANT, CURRICULUM_ANALISER } =
+    routesRecord;
 
 type AppRoutes = RouteObject & {
     title?: string;
@@ -34,6 +36,11 @@ const Routes: React.FC = () => {
             path: JOB_ASSISTANT,
             element: <JobAssistantPage />,
             title: 'Job Assistant',
+        },
+        {
+            path: CURRICULUM_ANALISER,
+            element: <CurriculumAnaliserPage />,
+            title: 'Curriculum Analiser',
         },
         { path: '*', element: <>Not found</> },
     ];

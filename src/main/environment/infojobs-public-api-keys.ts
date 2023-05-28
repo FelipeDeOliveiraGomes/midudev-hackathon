@@ -1,0 +1,1 @@
+export const INFOJOBS_CLIENT_ID = '180f594c8ea549e59b273e043cae313d';
