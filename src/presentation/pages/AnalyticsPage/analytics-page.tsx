@@ -148,10 +148,13 @@ const AnalyticsPage: React.FC = () => {
 
                 <div className="analytics-page__chart">
                     <Chart options={experienceChart} />
-                    <LabelWithEmoji emoji="eyes">
-                        !El perfil mas buscado tiene {} años o mas de
-                        experiencia!
-                    </LabelWithEmoji>
+                    {experienceChartData.length ? (
+                        <LabelWithEmoji emoji="eyes">
+                            !El perfil mas buscado tiene{' '}
+                            {experienceChartData[0]?.data[2][1]} años o mas de
+                            experiencia!
+                        </LabelWithEmoji>
+                    ) : null}
                 </div>
 
                 <div className="analytics-page__chart">
