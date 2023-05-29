@@ -1,6 +1,9 @@
+import { useEffect } from 'react';
+
 import { RouteObject, useLocation, useRoutes } from 'react-router-dom';
 
 import {
+    AboutPage,
     AnalyticsPage,
     CurriculumAnaliserPage,
     HomePage,
@@ -8,10 +11,14 @@ import {
     SalaryComparissonPage,
 } from '../pages';
 import { routesRecord } from './routes-record';
-import { useEffect } from 'react';
 
-const { ANALYTICS, SALARY_COMPARISSON, JOB_ASSISTANT, CURRICULUM_ANALISER } =
-    routesRecord;
+const {
+    ANALYTICS,
+    SALARY_COMPARISSON,
+    JOB_ASSISTANT,
+    CURRICULUM_ANALISER,
+    ABOUT,
+} = routesRecord;
 
 type AppRoutes = RouteObject & {
     title?: string;
@@ -40,6 +47,11 @@ const Routes: React.FC = () => {
         {
             path: CURRICULUM_ANALISER,
             element: <CurriculumAnaliserPage />,
+            title: 'Curriculum Analiser',
+        },
+        {
+            path: ABOUT,
+            element: <AboutPage />,
             title: 'Curriculum Analiser',
         },
         { path: '*', element: <>Not found</> },
