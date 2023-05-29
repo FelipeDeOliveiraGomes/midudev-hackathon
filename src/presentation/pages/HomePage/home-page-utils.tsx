@@ -3,6 +3,7 @@ import { CardWithIllustrationParams } from '@/presentation/components/CardWithIl
 import DoubtsIllustration from '@/presentation/assets/illustrations/Night.svg';
 import RobotIllustration from '@/presentation/assets/illustrations/robot-finding-data.svg';
 import CvAnalisisIllustration from '@/presentation/assets/illustrations/Empty Not found CV.svg';
+import SalaryComparisson from '@/presentation/assets/illustrations/Empty Salary.svg';
 
 import { routesRecord } from '@/presentation/router/routes-record';
 
@@ -42,5 +43,16 @@ export const homePageCardsData: HomePageCardsDataType[] = [
         path: routesRecord.CURRICULUM_ANALISER,
         children:
             '¿No estas seguro cuanto a tu curriculum? ¡Nuestra Avanzada analise de curriculum por inteligencia artificial te ayudará a polirlo!',
+    },
+    {
+        backgroundColor: 'soft-red',
+        illustration: <SalaryComparisson />,
+        title: 'Comparador De Sueldos',
+        delay: 900,
+        direction: 'to-left',
+        callToAction: 'Ir para Comparador de Sueldos',
+        path: routesRecord.SALARY_COMPARISSON,
+        children:
+            '¿No sabes como negociar? ¿No sabes si tu sueldo está acorde a al mercado? ¡Nuestro Comparador Salarial viene a salvarte!',
     },
 ];

@@ -1,7 +1,8 @@
 export type CardWithIllustrationColors =
     | 'soft-green'
     | 'soft-blue'
-    | 'soft-yellow';
+    | 'soft-yellow'
+    | 'soft-red';
 
 export type CardWithIllustrationParams = {
     children: React.ReactNode;
