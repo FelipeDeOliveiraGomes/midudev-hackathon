@@ -22,11 +22,16 @@
         padding: var(--spacing-l);
     }
 
-    &__paragraph {
+    &__paragraph,
+    &__paragraph--font-mid {
         margin: var(--spacing-l) 0;
         width: 100%;
         max-width: 700px;
         font-size: var(--font-size-m);
+    }
+
+    &__paragraph--font-mid {
+        font-size: var(--font-size-s);
     }
 
     &__subtitulo {
