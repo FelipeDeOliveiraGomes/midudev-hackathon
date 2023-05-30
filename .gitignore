@@ -13,3 +13,7 @@ npm-debug.log*
 
 # local env files
 .env
+
+
+firebase.json
+.firebaserc
