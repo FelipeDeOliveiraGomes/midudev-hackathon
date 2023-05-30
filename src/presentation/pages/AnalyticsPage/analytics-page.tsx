@@ -12,21 +12,34 @@ import { HighChartsData } from '@/presentation/types';
 import './analytics-page.scss';
 
 const concurrencyChartMock: HighChartsData[] = [
-    { name: 'Ofertas', type: 'line', data: [11, 10, 10] },
-    { name: 'candidatos', type: 'line', data: [10, 12, 11] },
+    { name: 'Ofertas', type: 'line', data: [367, 262, 323, 512, 362, 423] },
+    {
+        name: 'candidatos',
+        type: 'line',
+        data: [1420, 1519, 1323, 1420, 1319, 1323],
+    },
 ];
 
 const skillsChartMock: HighChartsData[] = [
-    { type: 'pie', data: [80, 67, 53, 42, 23] },
+    {
+        type: 'pie',
+        data: [
+            ['javascript', 88],
+            ['React', 77],
+            ['Git', 63],
+            ['Sass', 51],
+            ['Typescript', 48],
+        ],
+    },
 ];
 
 const experienceChartMock: HighChartsData[] = [
     {
         type: 'pie',
         data: [
-            ['junior', 15],
-            ['mid-level', 30],
-            ['Senior', 55],
+            ['junior', 1],
+            ['mid-level', 3],
+            ['Senior', 5],
         ],
     },
 ];
@@ -50,8 +63,8 @@ const salaryChartMock: HighChartsData[] = [
 ];
 
 const AnalyticsPage: React.FC = () => {
-    const [sector, setSector] = useState('');
-    const [province, setProvince] = useState('');
+    const [sector, setSector] = useState('Informatica');
+    const [province, setProvince] = useState('Toda España');
 
     const [concurrencyChartData, setConcurrencyChartData] = useState<
         HighChartsData[]
@@ -70,7 +83,7 @@ const AnalyticsPage: React.FC = () => {
     );
 
     const concurrencyChartOptions = makeHighchartsOptions({
-        title: 'Cantidad de ofertas de empleo x Candidatos - 3 meses',
+        title: 'Cantidad de ofertas de empleo x Candidatos - 6 meses',
         data: concurrencyChartData,
     });
 
