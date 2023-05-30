@@ -8,7 +8,7 @@ Ejecutar el servidor de desarrollo:
 
 <pre>npm run dev</pre>
 
-O puedes aceder a la version de producción en:
+O puedes aceder a la version de producción en: https://infojobs-tools.web.app
 
 Proyecto hecho para la Hackathon de MiduDev y infojobs
 
