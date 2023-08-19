@@ -2,15 +2,12 @@ import { useEffect } from 'react';
 
 import { RouteObject, useLocation, useRoutes } from 'react-router-dom';
 
-import {
-    AboutPage,
-    AnalyticsPage,
-    CurriculumAnaliserPage,
-    HomePage,
-    JobAssistantPage,
-    SalaryComparissonPage,
-} from '../pages';
+import pages from '../pages';
 import { routesRecord } from './routes-record';
+
+type AppRoutes = RouteObject & {
+    title?: string;
+};
 
 const {
     ANALYTICS,
@@ -20,9 +17,14 @@ const {
     ABOUT,
 } = routesRecord;
 
-type AppRoutes = RouteObject & {
-    title?: string;
-};
+const {
+    AboutPage,
+    AnalyticsPage,
+    CurriculumAnalyzerPage,
+    HomePage,
+    JobAssistantPage,
+    SalaryComparissonPage,
+} = pages;
 
 const Routes: React.FC = () => {
     const location = useLocation();
@@ -46,7 +48,7 @@ const Routes: React.FC = () => {
         },
         {
             path: CURRICULUM_ANALISER,
-            element: <CurriculumAnaliserPage />,
+            element: <CurriculumAnalyzerPage />,
             title: 'Curriculum Analiser',
         },
         {
