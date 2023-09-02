@@ -4,4 +4,4 @@ export const routesRecord = {
     CURRICULUM_ANALISER: '/curriculum-analiser',
     SALARY_COMPARISSON: '/salary-comparisson',
     ABOUT: '/about',
-};
+} as const;
