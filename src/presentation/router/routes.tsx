@@ -61,7 +61,7 @@ const Routes: React.FC = () => {
 
     useEffect(() => {
         const title = routes.find((route) => route.path === location.pathname);
-        document.title = title?.title ? title.title : 'InfoJobs Tools';
+        document.title = title?.title ?? 'InfoJobs Tools';
     }, [location, routes]);
 
     return useRoutes(routes);
