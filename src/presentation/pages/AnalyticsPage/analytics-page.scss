@@ -1,6 +1,6 @@
-@use "../../styles/breakpoints";
+@use "@styles/breakpoints";
 
-.analytics-page  {
+.analytics-page {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
@@ -59,7 +59,7 @@
 }
 
 @media (min-width: breakpoints.$screen-s) {
-    .analytics-page  {
+    .analytics-page {
         &__title {
             text-align: left;
             max-width: 1080px;

@@ -1,4 +1,6 @@
-import { AnimatedSlide, Button } from '@/presentation/components';
+import { Button } from '@/presentation/components/atoms';
+import { AnimatedSlide } from '@/presentation/components/helpers';
+
 import useSessionStorage from '@/store/hooks/useSessionStorage';
 
 import './curriculum-analiser.scss';

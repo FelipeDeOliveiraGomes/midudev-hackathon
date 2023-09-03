@@ -1,9 +1,8 @@
 import { CardWithIllustrationParams } from './card-with-illustration-types';
 
-import Card from '../Card/card';
+import { Card, Button } from '@/presentation/components/atoms';
 
 import './card-with-illustration.scss';
-import Button from '../Button/button';
 
 const CardWithIllustration: React.FC<CardWithIllustrationParams> = ({
     backgroundColor,

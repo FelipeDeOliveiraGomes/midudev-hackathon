@@ -1,14 +1,12 @@
 import { useState } from 'react';
 
-import {
-    AnimatedSlide,
-    AppSelect,
-    Chart,
-    LabelWithEmoji,
-} from '@/presentation/components';
+import { LabelWithEmoji } from '@/presentation/components/atoms';
+import { AppSelect, Chart } from '@/presentation/components/molecules';
+import { AnimatedSlide } from '@/presentation/components/helpers';
+
+import { makeHighchartsOptions } from '@/presentation/utils';
 
 import './salary-comparisson.scss';
-import { makeHighchartsOptions } from '@/presentation/utils';
 
 const SalaryComparissonPage: React.FC = () => {
     const [userSalaryInput, setUserSalaryInput] = useState('30000');

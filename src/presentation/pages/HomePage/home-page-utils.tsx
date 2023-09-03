@@ -1,11 +1,11 @@
-import { CardWithIllustrationParams } from '@/presentation/components/CardWithIllustration/card-with-illustration-types';
+import { CardWithIllustrationParams } from '@/presentation/components/molecules/CardWithIllustration/card-with-illustration-types';
 
 import DoubtsIllustration from '@/presentation/assets/illustrations/Night.svg';
 import RobotIllustration from '@/presentation/assets/illustrations/robot-finding-data.svg';
 import CvAnalisisIllustration from '@/presentation/assets/illustrations/Empty Not found CV.svg';
 import SalaryComparisson from '@/presentation/assets/illustrations/Empty Salary.svg';
 
-import { routesRecord } from '@/presentation/router/routes-record';
+import { routesRecord } from '@/presentation/router';
 
 type HomePageCardsDataType = {
     path: string;

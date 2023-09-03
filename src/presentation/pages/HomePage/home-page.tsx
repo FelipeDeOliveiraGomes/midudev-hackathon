@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 
-import { AnimatedSlide, CardWithIllustration } from '@/presentation/components';
+import { AnimatedSlide } from '@/presentation/components/helpers';
+import { CardWithIllustration } from '@/presentation/components/molecules';
+
 import { homePageCardsData } from './home-page-utils';
 
 import './home-page.scss';

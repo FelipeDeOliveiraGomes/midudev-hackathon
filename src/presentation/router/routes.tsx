@@ -9,16 +9,10 @@ type AppRoutes = RouteObject & {
     title?: string;
 };
 
-const {
-    ANALYTICS,
-    SALARY_COMPARISSON,
-    JOB_ASSISTANT,
-    CURRICULUM_ANALISER,
-    ABOUT,
-} = routesRecord;
+const { ANALYTICS, SALARY_COMPARISSON, JOB_ASSISTANT, CURRICULUM_ANALISER } =
+    routesRecord;
 
 const {
-    AboutPage,
     AnalyticsPage,
     CurriculumAnalyzerPage,
     HomePage,
@@ -49,11 +43,6 @@ const Routes: React.FC = () => {
         {
             path: CURRICULUM_ANALISER,
             element: <CurriculumAnalyzerPage />,
-            title: 'Curriculum Analiser',
-        },
-        {
-            path: ABOUT,
-            element: <AboutPage />,
             title: 'Curriculum Analiser',
         },
         { path: '*', element: <>Not found</> },

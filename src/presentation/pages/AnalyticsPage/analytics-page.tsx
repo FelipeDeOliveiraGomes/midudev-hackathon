@@ -1,13 +1,11 @@
 import { useEffect, useState } from 'react';
 
-import {
-    AppSelect,
-    Button,
-    Chart,
-    LabelWithEmoji,
-} from '@/presentation/components';
-import { makeHighchartsOptions, spainProvinces } from '@/presentation/utils';
 import { HighChartsData } from '@/presentation/types';
+
+import { Button, LabelWithEmoji } from '@/presentation/components/atoms';
+import { Chart, AppSelect } from '@/presentation/components/molecules';
+
+import { makeHighchartsOptions, spainProvinces } from '@/presentation/utils';
 
 import './analytics-page.scss';
 

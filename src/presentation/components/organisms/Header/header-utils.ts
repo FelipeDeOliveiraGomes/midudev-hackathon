@@ -17,8 +17,4 @@ export const linksToRender = [
         path: routesRecord.SALARY_COMPARISSON,
         label: 'Comparador De Sueldos',
     },
-    {
-        path: routesRecord.ABOUT,
-        label: 'Sobre este proyecto',
-    },
 ];

@@ -1,15 +1,17 @@
 import { useEffect, useState } from 'react';
 
+import { JobAssistantFormFields } from './job-assistant-page-types';
+
 import {
     AnimatedCheck,
-    AnimatedSlide,
-    AppSelect,
     Button,
     TypingAnimatedText,
-} from '@/presentation/components';
+} from '@/presentation/components/atoms';
+import { AppSelect } from '@/presentation/components/molecules';
+import { AnimatedSlide } from '@/presentation/components/helpers';
 
-import useSessionStorage from '@/store/hooks/useSessionStorage';
 import useFormValidation from '@/presentation/hooks/useFormValidation';
+import useSessionStorage from '@/store/hooks/useSessionStorage';
 
 import { spainProvinces } from '@/presentation/utils';
 import {
@@ -19,7 +21,6 @@ import {
 } from './job-assistant-page-utils';
 
 import './job-assistant-page.scss';
-import { JobAssistantFormFields } from './job-assistant-page-types';
 
 const JobAssistantPage: React.FC = () => {
     const [formIsVisible, setFormIsVisible] = useState(true);

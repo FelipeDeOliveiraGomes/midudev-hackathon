@@ -1,4 +1,4 @@
-import { Footer, Header } from '../../components';
+import { Footer, Header } from '@/presentation/components/organisms';
 
 import './main-layout.scss';
 

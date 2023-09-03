@@ -16,4 +16,5 @@ const Chart: React.FC<ChartParams> = ({ options }) => {
         </section>
     );
 };
+
 export default Chart;

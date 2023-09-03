@@ -1,4 +1,4 @@
-import { AppLogo } from '@/presentation/components';
+import { AppLogo } from '@/presentation/components/atoms';
 
 import './footer.scss';
 

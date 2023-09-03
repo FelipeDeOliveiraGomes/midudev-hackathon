@@ -1,4 +1,4 @@
-@use "../../styles/breakpoints";
+@use "@styles/breakpoints";
 
 .card-with-illustration {
     width: 80vw;
@@ -11,7 +11,7 @@
     &--soft-blue {
         background-color: var(--primary-l2);
     }
-    
+
     &--soft-yellow {
         background-color: var(--yellow-l2);
     }
@@ -61,11 +61,11 @@
         flex-direction: row;
         justify-content: space-between;
         padding: var(--spacing-l) 10%;
-    
+
         &--to-left {
             flex-direction: row-reverse;
         }
-    
+
         &__illustration-container {
             display: flex;
             align-items: center;
@@ -73,7 +73,7 @@
             width: 45%;
             height: 100%;
         }
-    
+
         &__content-container {
             width: 50%;
             gap: var(--spacing-m);
@@ -82,17 +82,17 @@
             justify-content: center;
             align-items: center;
         }
-    
+
         &__title {
             font-size: var(--font-size-s);
             text-align: center;
         }
-    
+
         &__content {
             font-size: var(--font-size-s);
             color: var(--primary-d4);
         }
-    
+
         &__button {
             background-color: var(--accent);
             width: max-content;

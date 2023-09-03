@@ -1,4 +1,4 @@
-@use "../../styles/breakpoints";
+@use "@styles/breakpoints";
 
 .app-header {
     width: 100%;
@@ -57,7 +57,7 @@
         padding-top: var(--spacing-giant);
         padding-left: var(--spacing-m);
         transition: margin ease-in-out .3s;
-        box-shadow: 6px 0 6px 0 rgba(0,0,0,0.4);
+        box-shadow: 6px 0 6px 0 rgba(0, 0, 0, 0.4);
     }
 
     &__mobile-links-inner-container--open {
@@ -90,7 +90,7 @@
         align-items: center;
         background-color: white;
         box-shadow: var(--box-shadow-mult);
-    
+
         &__navigation-bar {
             display: flex;
             align-items: center;
@@ -113,7 +113,7 @@
         &__mobile-links-container {
             display: none;
         }
-    
+
         &__links-container {
             display: flex;
             padding-bottom: var(--spacing-xs);
@@ -121,14 +121,14 @@
             font-size: var(--font-size-m);
             font-weight: 300;
         }
-    
+
         &__link {
             color: var(--gray-d2);
-    
+
             &--active {
                 color: var(--primary);
             }
-    
+
             &:hover {
                 color: var(--primary);
             }

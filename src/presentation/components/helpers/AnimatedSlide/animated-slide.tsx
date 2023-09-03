@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+
 import './animated-slide.scss';
 
 type AnimatedSlideParams = {

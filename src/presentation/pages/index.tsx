@@ -12,7 +12,6 @@ const pages = {
     CurriculumAnalyzerPage: React.lazy(
         () => import('./CurriculumAnaliserPage/curriculum-analiser')
     ),
-    AboutPage: React.lazy(() => import('./About/about-page')),
 };
 
 export default pages;

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-import AppLogo from '../AppLogo/app-logo';
+import { AppLogo } from '@/presentation/components/atoms';
 import BurguerMenuIcon from '@/presentation/assets/icons/hamburguer.svg';
 
 import { linksToRender } from './header-utils';

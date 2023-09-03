@@ -1,4 +1,4 @@
-@use "../../styles/breakpoints";
+@use "@styles/breakpoints";
 
 .job-assistant-page {
     width: 100%;
@@ -76,7 +76,7 @@
         border: solid .1rem;
         border-color: inherit;
         border-radius: .4rem;
-        outline: none; 
+        outline: none;
         color: inherit;
     }
 
