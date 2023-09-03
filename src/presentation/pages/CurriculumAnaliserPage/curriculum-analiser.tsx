@@ -1,5 +1,5 @@
 import { AnimatedSlide, Button } from '@/presentation/components';
-import useSessionStorage from '@/presentation/hooks/useSessionStorage';
+import useSessionStorage from '@/store/hooks/useSessionStorage';
 
 import './curriculum-analiser.scss';
 import { cvScopes, generateInfojobsAuthUrl } from './curriculum-analiser-utils';

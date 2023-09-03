@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { SetStateType } from '../types';
+import { SetStateType } from '../../presentation/types';
 
 type UseSessionStorageParams<U> = {
     key: string;

@@ -8,7 +8,7 @@ import {
     TypingAnimatedText,
 } from '@/presentation/components';
 
-import useSessionStorage from '@/presentation/hooks/useSessionStorage';
+import useSessionStorage from '@/store/hooks/useSessionStorage';
 import useFormValidation from '@/presentation/hooks/useFormValidation';
 
 import { spainProvinces } from '@/presentation/utils';
@@ -37,7 +37,6 @@ const JobAssistantPage: React.FC = () => {
     });
 
     const handleSubmit = () => {
-        console.log(formValues);
         setFormIsVisible(false);
     };
 
