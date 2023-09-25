@@ -4,7 +4,7 @@ import { AnimatedSlide } from '@/presentation/components/helpers';
 import useSessionStorage from '@/store/hooks/useSessionStorage';
 
 import { cvScopes, generateInfojobsAuthUrl } from './curriculum-analiser-utils';
-import { translate } from '@/presentation/content/helpers';
+import { useTranslate } from '@/presentation/content/hooks';
 
 import './curriculum-analiser.scss';
 
@@ -13,6 +13,8 @@ const CurriculumAnaliserPage: React.FC = () => {
         initialValue: '',
         key: 'user-oauth-token',
     });
+
+    const translate = useTranslate();
 
     const redirectToAuth = () => {
         const url = generateInfojobsAuthUrl(cvScopes, 'curriculum-analiser');

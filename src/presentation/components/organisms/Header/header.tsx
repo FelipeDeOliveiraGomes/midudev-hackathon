@@ -5,7 +5,7 @@ import { AppLogo } from '@/presentation/components/atoms';
 
 import BurguerMenuIcon from '@/presentation/assets/icons/hamburguer.svg';
 
-import { translate } from '@/presentation/content/helpers';
+import { TranslationsKeys, useTranslate } from '@/presentation/content/hooks';
 import { linksToRender } from './header-utils';
 
 import './header-styles.scss';
@@ -14,6 +14,7 @@ const Header: React.FC = () => {
     const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false);
 
     const location = useLocation();
+    const translate = useTranslate();
 
     const defineLinkIsActive = (path: string) => {
         return location.pathname === path ? '--active' : '';
@@ -26,7 +27,7 @@ const Header: React.FC = () => {
             to={path}
             key={path}
         >
-            {label}
+            {translate(label as TranslationsKeys)}
         </Link>
     ));
 

@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-import { translate } from '@/presentation/content/helpers/translate-helper';
+import { useTranslate } from '@/presentation/content/hooks/use-translate';
 
 import './app-select.scss';
+
 type AppSelectOptionsType = {
     label: string;
     value: string;
@@ -25,6 +26,7 @@ const AppSelect: React.FC<AppSelectParams> = ({
     const [isDropdownVisible, setIsDropdownVisible] = useState(false);
 
     const appSelectRef = useRef<HTMLDivElement>(null);
+    const translate = useTranslate();
 
     const filterOptions = (options: AppSelectOptionsType[]) => {
         const filterRegExp = new RegExp(searchExp, 'gi');

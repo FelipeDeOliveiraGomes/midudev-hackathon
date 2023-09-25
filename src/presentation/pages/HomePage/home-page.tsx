@@ -4,13 +4,13 @@ import { AnimatedSlide } from '@/presentation/components/helpers';
 import { CardWithIllustration } from '@/presentation/components/molecules';
 
 import { homePageCardsData } from './home-page-utils';
-import { TranslationsKeys, translate } from '@/presentation/content/helpers';
+import { TranslationsKeys, useTranslate } from '@/presentation/content/hooks';
 
 import './home-page.scss';
-import { transcode } from 'buffer';
 
 const HomePage: React.FC = () => {
     const navigate = useNavigate();
+    const translate = useTranslate();
 
     return (
         <section className="home-page">

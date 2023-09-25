@@ -5,12 +5,14 @@ import { AppSelect, Chart } from '@/presentation/components/molecules';
 import { AnimatedSlide } from '@/presentation/components/helpers';
 
 import { makeHighchartsOptions } from '@/presentation/utils';
+import { useTranslate } from '@/presentation/content/hooks';
 
 import './salary-comparisson.scss';
-import { translate } from '@/presentation/content/helpers';
 
 const SalaryComparissonPage: React.FC = () => {
     const [userSalaryInput, setUserSalaryInput] = useState('30000');
+
+    const translate = useTranslate();
 
     const averageSalary = 28000;
 

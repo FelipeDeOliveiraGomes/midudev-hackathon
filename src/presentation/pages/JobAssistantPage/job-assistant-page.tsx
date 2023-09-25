@@ -19,7 +19,7 @@ import {
 } from './job-assistant-page-utils';
 import useFormValidation from '@/presentation/hooks/useFormValidation';
 import { spainProvinces } from '@/presentation/utils';
-import { TranslationsKeys, translate } from '@/presentation/content/helpers';
+import { TranslationsKeys, useTranslate } from '@/presentation/content/hooks';
 
 import './job-assistant-page.scss';
 
@@ -37,6 +37,8 @@ const JobAssistantPage: React.FC = () => {
         setSubmitButtonState: setSubmitButtonIsDisabled,
         validationRules,
     });
+
+    const translate = useTranslate();
 
     const handleSubmit = () => {
         setFormIsVisible(false);

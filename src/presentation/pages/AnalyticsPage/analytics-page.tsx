@@ -6,71 +6,18 @@ import { Button, LabelWithEmoji } from '@/presentation/components/atoms';
 import { Chart, AppSelect } from '@/presentation/components/molecules';
 
 import { makeHighchartsOptions, spainProvinces } from '@/presentation/utils';
-import { translate } from '@/presentation/content/helpers';
+import { useTranslate } from '@/presentation/content/hooks';
 
 import './analytics-page.scss';
 
-const concurrencyChartMock: HighChartsData[] = [
-    {
-        name: translate('app.general.offers'),
-        type: 'line',
-        data: [367, 262, 323, 512, 362, 423],
-    },
-    {
-        name: translate('app.general.candidates'),
-        type: 'line',
-        data: [1420, 1519, 1323, 1420, 1319, 1323],
-    },
-];
-
-const skillsChartMock: HighChartsData[] = [
-    {
-        type: 'pie',
-        data: [
-            ['javascript', 88],
-            ['React', 77],
-            ['Git', 63],
-            ['Sass', 51],
-            ['Typescript', 48],
-        ],
-    },
-];
-
-const experienceChartMock: HighChartsData[] = [
-    {
-        type: 'pie',
-        data: [
-            ['junior', 1],
-            ['mid-level', 3],
-            ['Senior', 5],
-        ],
-    },
-];
-
-const salaryChartMock: HighChartsData[] = [
-    {
-        type: 'column',
-        data: [18000],
-        name: translate('app.general.min_registered'),
-    },
-    {
-        type: 'column',
-        data: [26000],
-        name: translate('app.general.overall_average'),
-    },
-    {
-        type: 'column',
-        data: [80000],
-        name: translate('app.general.max_registered'),
-    },
-];
-
-const sectorInitialValue = translate('app.sectors.information_technology');
-const provinceInitialValue = translate('app.general.all_spain');
+const sectorInitialValue = 'app.sectors.information_technology';
+const provinceInitialValue = 'app.general.all_spain';
 
 const AnalyticsPage: React.FC = () => {
-    const [sector, setSector] = useState(sectorInitialValue);
-    const [province, setProvince] = useState(provinceInitialValue);
+    const translate = useTranslate();
+
+    const [sector, setSector] = useState(translate(sectorInitialValue));
+    const [province, setProvince] = useState(translate(provinceInitialValue));
 
     const [concurrencyChartData, setConcurrencyChartData] = useState<
         HighChartsData[]
@@ -109,13 +56,6 @@ const AnalyticsPage: React.FC = () => {
         data: salaryChartData,
     });
 
-    const handleApplyClick = () => {
-        setConcurrencyChartData(concurrencyChartMock);
-        setExperienceChartData(experienceChartMock);
-        setSalaryChartData(salaryChartMock);
-        setSkillsChartData(skillsChartMock);
-    };
-
     const generateMostDesiredProfileLabel = (years: number) => {
         return `¡${translate(
             'app.analytics_page.most_desired_profile_has'
@@ -123,7 +63,69 @@ const AnalyticsPage: React.FC = () => {
     };
 
     useEffect(() => {
-        handleApplyClick();
+        const concurrencyChartMock: HighChartsData[] = [
+            {
+                name: translate('app.general.offers'),
+                type: 'line',
+                data: [367, 262, 323, 512, 362, 423],
+            },
+            {
+                name: translate('app.general.candidates'),
+                type: 'line',
+                data: [1420, 1519, 1323, 1420, 1319, 1323],
+            },
+        ];
+
+        const skillsChartMock: HighChartsData[] = [
+            {
+                type: 'pie',
+                data: [
+                    ['javascript', 88],
+                    ['React', 77],
+                    ['Git', 63],
+                    ['Sass', 51],
+                    ['Typescript', 48],
+                ],
+            },
+        ];
+
+        const experienceChartMock: HighChartsData[] = [
+            {
+                type: 'pie',
+                data: [
+                    ['junior', 1],
+                    ['mid-level', 3],
+                    ['Senior', 5],
+                ],
+            },
+        ];
+
+        const salaryChartMock: HighChartsData[] = [
+            {
+                type: 'column',
+                data: [18000],
+                name: translate('app.general.min_registered'),
+            },
+            {
+                type: 'column',
+                data: [26000],
+                name: translate('app.general.overall_average'),
+            },
+            {
+                type: 'column',
+                data: [80000],
+                name: translate('app.general.max_registered'),
+            },
+        ];
+
+        const applyChartsData = () => {
+            setConcurrencyChartData(concurrencyChartMock);
+            setExperienceChartData(experienceChartMock);
+            setSalaryChartData(salaryChartMock);
+            setSkillsChartData(skillsChartMock);
+        };
+
+        applyChartsData();
     }, []);
 
     return (
@@ -158,9 +160,7 @@ const AnalyticsPage: React.FC = () => {
                         }))}
                     />
 
-                    <Button onClick={handleApplyClick}>
-                        {translate('app.general.apply_filters')}
-                    </Button>
+                    <Button>{translate('app.general.apply_filters')}</Button>
                 </div>
             </section>
 
