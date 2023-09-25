@@ -6,13 +6,18 @@ import { Button, LabelWithEmoji } from '@/presentation/components/atoms';
 import { Chart, AppSelect } from '@/presentation/components/molecules';
 
 import { makeHighchartsOptions, spainProvinces } from '@/presentation/utils';
+import { translate } from '@/presentation/content/helpers';
 
 import './analytics-page.scss';
 
 const concurrencyChartMock: HighChartsData[] = [
-    { name: 'Ofertas', type: 'line', data: [367, 262, 323, 512, 362, 423] },
     {
-        name: 'candidatos',
+        name: translate('app.general.offers'),
+        type: 'line',
+        data: [367, 262, 323, 512, 362, 423],
+    },
+    {
+        name: translate('app.general.candidates'),
         type: 'line',
         data: [1420, 1519, 1323, 1420, 1319, 1323],
     },
@@ -46,23 +51,26 @@ const salaryChartMock: HighChartsData[] = [
     {
         type: 'column',
         data: [18000],
-        name: 'Mínimo registrado',
+        name: translate('app.general.min_registered'),
     },
     {
         type: 'column',
         data: [26000],
-        name: 'Média general',
+        name: translate('app.general.overall_average'),
     },
     {
         type: 'column',
         data: [80000],
-        name: 'Maximo registrado',
+        name: translate('app.general.max_registered'),
     },
 ];
 
+const sectorInitialValue = translate('app.sectors.information_technology');
+const provinceInitialValue = translate('app.general.all_spain');
+
 const AnalyticsPage: React.FC = () => {
-    const [sector, setSector] = useState('Informatica');
-    const [province, setProvince] = useState('Toda España');
+    const [sector, setSector] = useState(sectorInitialValue);
+    const [province, setProvince] = useState(provinceInitialValue);
 
     const [concurrencyChartData, setConcurrencyChartData] = useState<
         HighChartsData[]
@@ -81,23 +89,23 @@ const AnalyticsPage: React.FC = () => {
     );
 
     const concurrencyChartOptions = makeHighchartsOptions({
-        title: 'Cantidad de ofertas de empleo x Candidatos - 6 meses',
+        title: translate('app.concurrency_chart.title'),
         data: concurrencyChartData,
     });
 
     const skillsChartOptions = makeHighchartsOptions({
-        title: 'Top 5 Habilidades mas demandadas',
+        title: translate('app.skills_chart.title'),
         data: skillsChartData,
     });
 
     const experienceChart = makeHighchartsOptions({
-        title: 'Distribucion de las ofertas por nivel de experiencia',
+        title: translate('app.experience_chart.title'),
         isDoughnutChart: true,
         data: experienceChartData,
     });
 
     const salaryDistribuitionChart = makeHighchartsOptions({
-        title: 'Sueldos minimo, medio y maximos registrados',
+        title: translate('app.salary_distribution_chart.title'),
         data: salaryChartData,
     });
 
@@ -108,6 +116,12 @@ const AnalyticsPage: React.FC = () => {
         setSkillsChartData(skillsChartMock);
     };
 
+    const generateMostDesiredProfileLabel = (years: number) => {
+        return `¡${translate(
+            'app.analytics_page.most_desired_profile_has'
+        )} ${years} ${translate('app.analytics_page.years_of_experience')}!`;
+    };
+
     useEffect(() => {
         handleApplyClick();
     }, []);
@@ -116,33 +130,37 @@ const AnalyticsPage: React.FC = () => {
         <div className="analytics-page">
             <section className="analytics-page__chart-filters">
                 <header className="analytics-page__title">
-                    <h2>Analytics</h2>
+                    <h2>{translate('app.general.analytics')}</h2>
                 </header>
 
                 <div className="analytics-page__actions-container">
                     <AppSelect
-                        label="Quiero datos del sector..."
+                        label={translate('app.placeholders.sector')}
                         value={sector}
-                        onChange={(newValue) => {
-                            console.log(newValue);
-                            setSector(newValue);
-                        }}
+                        onChange={setSector}
                         options={[
-                            { label: 'informatica', value: 'informatica' },
+                            {
+                                label: translate(
+                                    'app.sectors.information_technology'
+                                ),
+                                value: 'informatica',
+                            },
                         ]}
                     />
 
                     <AppSelect
-                        label="en..."
+                        label={translate('app.placeholders.in')}
                         value={province}
-                        onChange={(newValue) => setProvince(newValue)}
+                        onChange={setProvince}
                         options={spainProvinces.map((province) => ({
                             label: province,
                             value: province,
                         }))}
                     />
 
-                    <Button onClick={handleApplyClick}>Aplicar filtros</Button>
+                    <Button onClick={handleApplyClick}>
+                        {translate('app.general.apply_filters')}
+                    </Button>
                 </div>
             </section>
 
@@ -150,14 +168,14 @@ const AnalyticsPage: React.FC = () => {
                 <div className="analytics-page__chart">
                     <Chart options={concurrencyChartOptions} />
                     <LabelWithEmoji emoji="sad">
-                        ¡Este sector actualmente esta muy concurrido!
+                        {translate('app.analytics_page.concurred_sector')}
                     </LabelWithEmoji>
                 </div>
 
                 <div className="analytics-page__chart">
                     <Chart options={skillsChartOptions} />
                     <LabelWithEmoji emoji="cool">
-                        ¿Quieres destacar en el mercado? Aqui esta el secreto.
+                        {translate('app.analytics_page.success_secret')}
                     </LabelWithEmoji>
                 </div>
 
@@ -165,9 +183,9 @@ const AnalyticsPage: React.FC = () => {
                     <Chart options={experienceChart} />
                     {experienceChartData.length ? (
                         <LabelWithEmoji emoji="eyes">
-                            !El perfil mas buscado tiene{' '}
-                            {experienceChartData[0]?.data[2][1]} años o mas de
-                            experiencia!
+                            {generateMostDesiredProfileLabel(
+                                experienceChartData[0]?.data[2][1]
+                            )}
                         </LabelWithEmoji>
                     ) : null}
                 </div>
@@ -175,7 +193,7 @@ const AnalyticsPage: React.FC = () => {
                 <div className="analytics-page__chart">
                     <Chart options={salaryDistribuitionChart} />
                     <LabelWithEmoji emoji="moneyFace">
-                        ¿Estas dentro de este rango?
+                        {translate('app.analytics_page.are_you_in_this_range')}
                     </LabelWithEmoji>
                 </div>
             </section>

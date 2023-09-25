@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import './app-select.scss';
 
+import { translate } from '@/presentation/content/helpers/translate-helper';
+
+import './app-select.scss';
 type AppSelectOptionsType = {
     label: string;
     value: string;
@@ -99,7 +101,8 @@ const AppSelect: React.FC<AppSelectParams> = ({
                         ) : (
                             <li className="app-select__li">
                                 <span>
-                                    No encontrado:
+                                    {translate('app.general.not_found')}
+                                    {': '}
                                     <span className="app-select__highlight">
                                         "{searchExp}"
                                     </span>

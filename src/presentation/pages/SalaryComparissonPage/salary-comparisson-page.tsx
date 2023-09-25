@@ -7,6 +7,7 @@ import { AnimatedSlide } from '@/presentation/components/helpers';
 import { makeHighchartsOptions } from '@/presentation/utils';
 
 import './salary-comparisson.scss';
+import { translate } from '@/presentation/content/helpers';
 
 const SalaryComparissonPage: React.FC = () => {
     const [userSalaryInput, setUserSalaryInput] = useState('30000');
@@ -18,15 +19,15 @@ const SalaryComparissonPage: React.FC = () => {
             {
                 type: 'column',
                 data: [averageSalary],
-                name: 'Media Infojobs del sector',
+                name: translate('app.salary_comparisson_page.average_salary'),
             },
             {
                 type: 'column',
                 data: [Number(userSalaryInput)],
-                name: 'Tu sueldo',
+                name: translate('app.salary_comparisson_page.your_salary'),
             },
         ],
-        title: 'Comparacion de Sueldo',
+        title: translate('app.salary_comparisson_page.chart_title'),
     });
 
     options.chart!.backgroundColor = 'transparent';
@@ -43,17 +44,17 @@ const SalaryComparissonPage: React.FC = () => {
 
     const defineMessage = () => {
         const difference = usersSalaryNumber - averageSalary;
-        const percentage = (difference / averageSalary) * 100;
+        const percentage = ((difference / averageSalary) * 100).toFixed(2);
 
-        if (difference > 0) {
-            return `¡Felicidades! Tu sueldo está un ${percentage.toFixed(
-                2
-            )}% por encima de la media del mercado`;
-        } else {
-            return `¡Pidete un aumento!, estás un ${(percentage * -1).toFixed(
-                2
-            )}% defasado de la media del mercado`;
-        }
+        return difference > 0
+            ? translate(
+                  'app.salary_comparisson_page.salary_higher_than_average',
+                  percentage
+              )
+            : translate(
+                  'app.salary_comparisson_page.salary_lower_than_average',
+                  percentage
+              );
     };
 
     return (
@@ -62,11 +63,15 @@ const SalaryComparissonPage: React.FC = () => {
                 <AnimatedSlide delay={100}>
                     <div className="salary-comparisson-page__inner-container">
                         <header className="salary-comparisson-page__header">
-                            <h2>Comparador de Sueldos</h2>
+                            <h2>
+                                {translate('app.salary_comparisson_page.title')}
+                            </h2>
                         </header>
 
                         <label className={`salary-comparisson-page__label`}>
-                            Tu sueldo
+                            {translate(
+                                'app.salary_comparisson_page.your_salary'
+                            )}
                             <input
                                 value={userSalaryInput}
                                 type={'text'}
@@ -80,9 +85,16 @@ const SalaryComparissonPage: React.FC = () => {
 
                         <AppSelect
                             options={[
-                                { label: 'Informatica', value: 'informatica' },
+                                {
+                                    label: translate(
+                                        'app.sectors.information_technology'
+                                    ),
+                                    value: 'informatica',
+                                },
                             ]}
-                            label="Comparar con sueldos del sector..."
+                            label={translate(
+                                'app.salary_comparisson_page.sector'
+                            )}
                             value="Informatica"
                         />
 

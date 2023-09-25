@@ -10,6 +10,7 @@ import '../presentation/styles/global.scss';
 
 const container = document.getElementById('main');
 const root = createRoot(container!);
+
 root.render(
     <React.StrictMode>
         <BrowserRouter>

@@ -3,8 +3,10 @@ import { AnimatedSlide } from '@/presentation/components/helpers';
 
 import useSessionStorage from '@/store/hooks/useSessionStorage';
 
-import './curriculum-analiser.scss';
 import { cvScopes, generateInfojobsAuthUrl } from './curriculum-analiser-utils';
+import { translate } from '@/presentation/content/helpers';
+
+import './curriculum-analiser.scss';
 
 const CurriculumAnaliserPage: React.FC = () => {
     const [oauthToken, setOauthToken] = useSessionStorage({
@@ -24,11 +26,14 @@ const CurriculumAnaliserPage: React.FC = () => {
                     <AnimatedSlide delay={100}>
                         <div className="curriculum-analiser-page__login-card">
                             <span>
-                                Para utilizar esta feature tienes que estar
-                                autenticad@
+                                {translate(
+                                    'app.curriculum_analiser_page.auth_message'
+                                )}
                             </span>
                             <Button onClick={redirectToAuth}>
-                                Iniciar sesión con InfoJobs
+                                {translate(
+                                    'app.curriculum_analiser_page.infojobs_login'
+                                )}
                             </Button>
                         </div>
                     </AnimatedSlide>
@@ -38,7 +43,11 @@ const CurriculumAnaliserPage: React.FC = () => {
                     <AnimatedSlide delay={100}>
                         <div className="curriculum-analiser-page__chat-window">
                             <header className="curriculum-analiser-page__header">
-                                <h2>Analisis De Curriculum</h2>
+                                <h2>
+                                    {translate(
+                                        'app.curriculum_analiser_page.title'
+                                    )}
+                                </h2>
                             </header>
 
                             <div className="curriculum-analiser-page__chat"></div>

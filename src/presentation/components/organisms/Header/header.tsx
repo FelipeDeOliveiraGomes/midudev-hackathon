@@ -2,8 +2,10 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 import { AppLogo } from '@/presentation/components/atoms';
+
 import BurguerMenuIcon from '@/presentation/assets/icons/hamburguer.svg';
 
+import { translate } from '@/presentation/content/helpers';
 import { linksToRender } from './header-utils';
 
 import './header-styles.scss';
@@ -64,7 +66,7 @@ const Header: React.FC = () => {
                             )}`}
                             to={'/'}
                         >
-                            Inicio
+                            {translate('app.general.home')}
                         </Link>
                         {links}
                     </div>

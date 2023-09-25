@@ -20,17 +20,17 @@ export const validationRules = {
 
 export const fieldsToRender: FieldToRenderType[] = [
     {
-        label: 'Nombre',
+        label: 'app.general.name',
         type: 'text',
         name: 'name',
     },
     {
-        label: 'Email',
+        label: 'app.general.email',
         type: 'email',
         name: 'email',
     },
     {
-        label: 'Busco ofertas de...',
+        label: 'app.placeholders.looking_for_offers',
         type: 'text',
         name: 'offerTitle',
     },

@@ -10,15 +10,16 @@ import {
 import { AppSelect } from '@/presentation/components/molecules';
 import { AnimatedSlide } from '@/presentation/components/helpers';
 
-import useFormValidation from '@/presentation/hooks/useFormValidation';
 import useSessionStorage from '@/store/hooks/useSessionStorage';
 
-import { spainProvinces } from '@/presentation/utils';
 import {
     initialValues,
     validationRules,
     fieldsToRender,
 } from './job-assistant-page-utils';
+import useFormValidation from '@/presentation/hooks/useFormValidation';
+import { spainProvinces } from '@/presentation/utils';
+import { TranslationsKeys, translate } from '@/presentation/content/helpers';
 
 import './job-assistant-page.scss';
 
@@ -61,7 +62,9 @@ const JobAssistantPage: React.FC = () => {
             <div className="job-assistant-page__inner-container">
                 <header className="job-assistant-page__header">
                     <TypingAnimatedText
-                        text="¡Bienvenid@ al Job Assistant de infoJobs tools!"
+                        text={translate(
+                            'app.job_assistant_page.welcome_message'
+                        )}
                         typingSpeed={isFirstUserLoading ? 80 : 0}
                     />
                 </header>
@@ -74,7 +77,7 @@ const JobAssistantPage: React.FC = () => {
                         >
                             <header className="job-assistant-page__form-header">
                                 <h3 className="job-assistant-page__title">
-                                    Job Assistant
+                                    {translate('app.job_assistant_page.title')}
                                 </h3>
                             </header>
 
@@ -85,7 +88,7 @@ const JobAssistantPage: React.FC = () => {
                                     )}`}
                                     key={name}
                                 >
-                                    {label}
+                                    {translate(label as TranslationsKeys)}
                                     <input
                                         name={name}
                                         value={formValues[name]}
@@ -97,7 +100,7 @@ const JobAssistantPage: React.FC = () => {
                             ))}
 
                             <AppSelect
-                                label="en..."
+                                label={translate('app.placeholders.in')}
                                 options={spainProvinces.map((province) => ({
                                     label: province,
                                     value: province,
@@ -116,14 +119,16 @@ const JobAssistantPage: React.FC = () => {
                                     type="checkbox"
                                     className="job-assistant-page__checkbox-input"
                                 />
-                                Buscar solo ofertas en remoto
+                                {translate(
+                                    'app.job_assistant_page.only_remote'
+                                )}
                             </label>
 
                             <Button
                                 disabled={submitButtonIsDisabled}
                                 onClick={handleSubmit}
                             >
-                                Registrarse en Job Assistant
+                                {translate('app.job_assistant_page.signin')}
                             </Button>
                         </form>
                     </AnimatedSlide>
@@ -134,14 +139,15 @@ const JobAssistantPage: React.FC = () => {
                         <AnimatedSlide delay={200}>
                             <div className="job-assistant-page__success-message-inner-container">
                                 <span className="job-assistant-page__thanks">
-                                    ¡Gracias por suscribirte!
+                                    {translate(
+                                        'app.job_assistant_page.success_signin_feedback'
+                                    )}
                                 </span>
 
                                 <p className="job-assistant-page__explanation">
-                                    No volverás a perder tiempo buscando
-                                    ofertas, tu Job Assitant te enviará todos
-                                    los dias las mejores ofertas de InfoJobs
-                                    segun tus criterios.
+                                    {translate(
+                                        'app.job_assistant_page.feature_explain'
+                                    )}
                                 </p>
                             </div>
                         </AnimatedSlide>
